@@ -1,0 +1,306 @@
+:root {
+  --ink: #263034;
+  --ink-soft: #4c575a;
+  --orange: #eda033;
+  --orange-dark: #d98a1e;
+  --cream: #f5f2eb;
+  --white: #fff;
+  --line: #dddcd6;
+  --container: 1180px;
+  --radius: 4px;
+  --shadow: 0 24px 60px rgba(20, 29, 31, 0.13);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--white);
+  font-family: "Avenir Next", Avenir, "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+button, input { font: inherit; }
+svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.container { width: min(calc(100% - 48px), var(--container)); margin-inline: auto; }
+.section { padding: 112px 0; }
+.skip-link {
+  position: fixed; left: 20px; top: -100px; z-index: 100;
+  background: var(--white); color: var(--ink); padding: 12px 18px;
+}
+.skip-link:focus { top: 12px; }
+:focus-visible { outline: 3px solid #1867b8; outline-offset: 4px; }
+
+.offer-bar {
+  min-height: 38px; padding: 7px 24px; background: var(--orange); color: var(--ink);
+  display: flex; justify-content: center; gap: 28px; align-items: center;
+  font-size: 13px; font-weight: 600; letter-spacing: .01em;
+}
+.offer-bar a { font-weight: 700; text-underline-offset: 3px; }
+.offer-bar span { opacity: .8; }
+.site-header {
+  height: 84px; position: absolute; z-index: 10; top: 38px; left: 0; right: 0;
+  border-bottom: 1px solid rgba(255,255,255,.22); color: var(--white);
+}
+.header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+.brand { width: 188px; height: 64px; overflow: hidden; position: relative; flex: 0 0 auto; }
+.brand img, .footer-brand img {
+  position: absolute; width: 100%; height: 100%; object-fit: contain; transform: scale(1.65);
+}
+.brand img { filter: brightness(0) invert(1); }
+.footer-brand img { filter: brightness(0) invert(1); }
+nav { display: flex; gap: 36px; margin-left: auto; margin-right: 34px; }
+nav a { text-decoration: none; font-size: 14px; font-weight: 600; }
+nav a:hover { color: var(--orange); }
+
+.button {
+  min-height: 54px; padding: 14px 25px; border: 0; border-radius: var(--radius);
+  display: inline-flex; justify-content: center; align-items: center; gap: 10px;
+  text-decoration: none; font-weight: 700; font-size: 14px; line-height: 1.2;
+  cursor: pointer; transition: transform .2s, background .2s, box-shadow .2s;
+}
+.button:hover { transform: translateY(-2px); }
+.button svg { width: 19px; height: 19px; fill: currentColor; stroke: none; }
+.button-primary { color: #1f282b; background: var(--orange); box-shadow: 0 10px 26px rgba(237,160,51,.22); }
+.button-primary:hover { background: #f4ad48; }
+.button-dark { color: var(--white); background: var(--ink); }
+.button-dark:hover { background: #354145; }
+.button-small { min-height: 42px; padding: 10px 18px; font-size: 13px; }
+.button-full { width: 100%; }
+.text-link { font-size: 14px; font-weight: 700; text-decoration: none; border-bottom: 1px solid #b7b7b2; padding-bottom: 5px; }
+.text-link span { color: var(--orange-dark); margin-left: 6px; transition: margin .2s; }
+.text-link:hover span { margin-left: 11px; }
+.light-link { color: white; border-color: rgba(255,255,255,.5); }
+
+.hero { height: min(820px, calc(100vh - 38px)); min-height: 680px; position: relative; color: white; overflow: hidden; }
+.hero-image, .final-bg {
+  position: absolute; inset: 0; background: url("assets/images/overkapping-aan-huis.webp") center/cover no-repeat;
+  transform: scale(1.02);
+}
+.hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(16,25,28,.82) 0%, rgba(16,25,28,.55) 47%, rgba(16,25,28,.1) 80%); }
+.hero-content { position: relative; z-index: 2; padding-top: 198px; }
+.eyebrow {
+  margin: 0 0 18px; color: var(--orange-dark); font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .19em;
+}
+.eyebrow::before { content: ""; display: inline-block; vertical-align: middle; width: 32px; height: 1px; background: currentColor; margin-right: 12px; }
+.eyebrow.light { color: #f4af4b; }
+h1, h2 { font-family: "Avenir Next", Avenir, "Segoe UI", Arial, sans-serif; font-weight: 500; letter-spacing: -.045em; line-height: 1.08; margin: 0; }
+h1 { font-size: clamp(48px, 6.4vw, 82px); max-width: 800px; }
+h1 em, h2 em { color: var(--orange); font-style: normal; }
+.hero-intro { max-width: 570px; margin: 24px 0 30px; color: rgba(255,255,255,.87); font-size: 18px; }
+.hero-actions { display: flex; align-items: center; gap: 30px; }
+.discount-card {
+  position: absolute; top: 470px; left: 660px; width: 150px; height: 150px; border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%; backdrop-filter: blur(8px); background: rgba(255,255,255,.1); display: flex;
+  flex-direction: column; justify-content: center; align-items: center; text-align: center; transform: rotate(7deg);
+}
+.discount-card strong { color: var(--orange); font: 700 25px/1 "Avenir Next", Avenir, sans-serif; }
+.discount-card span { max-width: 106px; margin-top: 7px; font-size: 11px; line-height: 1.35; }
+.scroll-cue {
+  position: absolute; z-index: 2; bottom: 26px; left: 50%; transform: translateX(-50%);
+  color: rgba(255,255,255,.8); font-size: 11px; text-decoration: none; text-transform: uppercase; letter-spacing: .16em;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.scroll-cue span { color: var(--orange); font-size: 18px; }
+
+.section-heading h2, .process h2, .trust h2, .guide h2, .final-cta h2 { font-size: clamp(38px, 4vw, 56px); }
+.section-heading > p:not(.eyebrow), .section-heading.split > p { color: #677174; max-width: 570px; }
+.centered { text-align: center; max-width: 730px; margin: 0 auto 60px; }
+.centered .eyebrow::before { display: none; }
+.centered > p:last-child { margin: 22px auto 0; }
+.benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.benefit-grid article { text-align: center; padding: 10px 52px; border-right: 1px solid var(--line); }
+.benefit-grid article:last-child { border: 0; }
+.icon-wrap { width: 62px; height: 62px; margin: 0 auto 22px; background: #fbf1e1; border-radius: 50%; display: grid; place-items: center; color: var(--orange-dark); }
+.icon-wrap svg { width: 28px; }
+.benefit-grid h3 { margin: 0 0 9px; font: 600 18px/1.3 "Avenir Next", Avenir, sans-serif; }
+.benefit-grid p { color: #6b7476; font-size: 14px; margin: 0; }
+
+.inspiration { background: var(--cream); }
+.section-heading.split { display: grid; grid-template-columns: 1.2fr .8fr; align-items: end; gap: 90px; margin-bottom: 50px; }
+.section-heading.split > p { margin: 0 0 4px; }
+.gallery { display: grid; grid-template-columns: 1.25fr .75fr; grid-template-rows: repeat(2, 275px); gap: 16px; }
+.gallery figure { margin: 0; position: relative; overflow: hidden; }
+.gallery-large { grid-row: 1 / 3; }
+.gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.gallery figure:hover img { transform: scale(1.035); }
+.gallery figure::after { content: ""; position: absolute; inset: 50% 0 0; background: linear-gradient(transparent, rgba(14,22,24,.72)); }
+.gallery figcaption { position: absolute; z-index: 1; left: 25px; bottom: 22px; color: white; display: flex; flex-direction: column; }
+.gallery figcaption strong { font: 600 19px "Avenir Next", Avenir, sans-serif; }
+.gallery figcaption span { color: rgba(255,255,255,.72); font-size: 12px; }
+.center-action { margin-top: 34px; display: flex; align-items: center; justify-content: center; gap: 22px; }
+.center-action span { color: #697274; font-size: 13px; }
+
+.process { background: var(--ink); color: white; overflow: hidden; }
+.process-layout { display: grid; grid-template-columns: 1fr 420px; gap: 110px; align-items: center; }
+.process-copy > .lead { max-width: 600px; color: #bcc2c3; margin: 24px 0 38px; }
+.process ol { list-style: none; padding: 0; margin: 0; }
+.process li { display: grid; grid-template-columns: 52px 1fr; gap: 20px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.12); }
+.process li > span { color: var(--orange); font: 600 12px "Avenir Next", Avenir, sans-serif; padding-top: 5px; }
+.process li h3 { font: 600 17px "Avenir Next", Avenir, sans-serif; margin: 0 0 5px; }
+.process li p { color: #aeb5b6; font-size: 14px; margin: 0; }
+.call-card { background: white; color: var(--ink); padding: 44px 42px; box-shadow: var(--shadow); position: relative; }
+.call-card::before { content: ""; position: absolute; width: 80px; height: 4px; background: var(--orange); top: 0; left: 0; }
+.call-card-label { color: var(--orange-dark); font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: .15em; }
+.call-card h3 { margin: 12px 0 10px; font: 600 29px/1.2 "Avenir Next", Avenir, sans-serif; letter-spacing: -.03em; }
+.call-card > p { color: #667073; font-size: 14px; }
+.price-lockup { margin: 27px 0; padding: 17px 0; border-block: 1px solid var(--line); display: flex; align-items: center; gap: 17px; }
+.price-lockup strong { color: var(--orange-dark); font: 700 28px "Avenir Next", Avenir, sans-serif; }
+.price-lockup span { max-width: 130px; color: #697174; font-size: 12px; line-height: 1.3; }
+.call-card small { display: block; margin-top: 13px; text-align: center; color: #818789; font-size: 11px; }
+
+.trust-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 95px; align-items: center; }
+.trust-photo { min-height: 520px; position: relative; }
+.trust-photo img { width: 90%; height: 490px; object-fit: cover; }
+.trust-photo::before { content: ""; position: absolute; z-index: -1; width: 62%; height: 82%; right: 0; bottom: 0; background: var(--cream); }
+.trust-photo > div { position: absolute; right: 0; bottom: 36px; padding: 22px 28px; background: var(--orange); display: flex; flex-direction: column; }
+.trust-photo strong { font: 600 18px "Avenir Next", Avenir, sans-serif; }
+.trust-photo span { font-size: 12px; }
+.trust-copy > p:not(.eyebrow) { color: #626d70; margin: 23px 0; }
+.check-list { list-style: none; padding: 0; margin: 24px 0 30px; }
+.check-list li { padding: 9px 0 9px 30px; position: relative; font-size: 14px; font-weight: 600; }
+.check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--orange-dark); font-weight: 700; }
+
+.guide { background: var(--cream); }
+.guide-card { min-height: 410px; background: var(--ink); color: white; display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; overflow: hidden; }
+.guide-art { align-self: stretch; position: relative; min-height: 410px; background: #333d40; }
+.guide-sheet { position: absolute; display: block; width: 230px; height: 310px; box-shadow: 0 18px 45px rgba(0,0,0,.24); }
+.guide-sheet-back { background: #ebe4d9; left: 20%; top: 78px; transform: rotate(-10deg); }
+.guide-sheet-front { background: var(--orange); left: 30%; top: 50px; transform: rotate(5deg); padding: 20px 22px; color: var(--ink); }
+.guide-sheet-front img { width: 90px; height: 48px; object-fit: contain; transform: scale(1.7); transform-origin: left top; filter: none; }
+.guide-sheet-front i { display: block; font: 700 11px/1.4 "Avenir Next", Avenir, sans-serif; letter-spacing: .13em; margin-top: 55px; }
+.guide-sheet-front b { display: block; font: 600 24px/1.13 "Avenir Next", Avenir, sans-serif; margin-top: 18px; }
+.guide-copy { padding: 55px 75px; }
+.guide-copy > p:not(.eyebrow) { color: #bec4c5; max-width: 620px; }
+form { margin-top: 28px; }
+.form-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: end; }
+.form-row > .button { height: 54px; margin-bottom: 17px; }
+.field label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 7px; }
+.field input {
+  width: 100%; height: 54px; padding: 0 16px; background: white; color: var(--ink);
+  border: 2px solid transparent; border-radius: var(--radius);
+}
+.field input[aria-invalid="true"] { border-color: #d85d49; }
+.field-error { display: block; min-height: 17px; color: #ffb3a7; font-size: 11px; padding-top: 3px; }
+.consent { display: flex; gap: 9px; margin-top: 8px; color: #b7bec0; font-size: 11px; line-height: 1.45; cursor: pointer; }
+.consent input { margin-top: 2px; accent-color: var(--orange); }
+.form-status { min-height: 24px; margin: 10px 0 0; font-size: 13px; color: #d4dbdc; }
+.form-status.success { color: #8fe0af; }
+.form-status.error { color: #ffb3a7; }
+button[disabled] { opacity: .65; cursor: wait; transform: none; }
+
+.faq-layout { display: grid; grid-template-columns: .68fr 1.32fr; gap: 110px; }
+.faq .section-heading > p:not(.eyebrow) { margin: 20px 0 28px; }
+.accordion details { border-top: 1px solid var(--line); }
+.accordion details:last-child { border-bottom: 1px solid var(--line); }
+.accordion summary {
+  padding: 24px 2px; display: flex; justify-content: space-between; align-items: center; gap: 25px;
+  font: 600 16px "Avenir Next", Avenir, sans-serif; cursor: pointer; list-style: none;
+}
+.accordion summary::-webkit-details-marker { display: none; }
+.accordion summary span { width: 14px; height: 14px; position: relative; flex: 0 0 auto; }
+.accordion summary span::before, .accordion summary span::after { content: ""; position: absolute; background: var(--orange-dark); }
+.accordion summary span::before { width: 14px; height: 2px; top: 6px; }
+.accordion summary span::after { width: 2px; height: 14px; left: 6px; transition: transform .2s; }
+.accordion details[open] summary span::after { transform: rotate(90deg); }
+.accordion details p { margin: -8px 40px 24px 2px; color: #626d70; font-size: 14px; }
+
+.final-cta { min-height: 500px; position: relative; color: white; display: grid; place-items: center; text-align: center; overflow: hidden; }
+.final-bg { background-image: url("assets/images/moderne-terrasoverkapping.webp"); }
+.final-overlay { position: absolute; inset: 0; background: rgba(20,30,32,.78); }
+.final-content { position: relative; z-index: 1; display: flex; align-items: center; flex-direction: column; }
+.final-content p:not(.eyebrow) { max-width: 590px; color: #d2d6d6; margin: 22px auto 28px; }
+.final-content > strong { margin-top: 12px; color: var(--orange); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; }
+
+footer { background: #20282b; color: white; padding: 45px 0 25px; }
+.footer-main { display: flex; align-items: center; gap: 40px; padding-bottom: 36px; }
+.footer-brand { width: 160px; height: 60px; overflow: hidden; position: relative; }
+.footer-main p { margin-right: auto; color: #aeb5b7; font-size: 13px; }
+.footer-main > a:last-child { color: var(--orange); font-weight: 700; text-decoration: none; }
+.footer-bottom { padding-top: 22px; border-top: 1px solid rgba(255,255,255,.1); display: flex; justify-content: space-between; color: #899193; font-size: 10px; }
+.mobile-call { display: none; }
+
+@media (max-width: 900px) {
+  .section { padding: 82px 0; }
+  nav { display: none; }
+  .header-call { margin-left: auto; }
+  .discount-card { left: auto; right: 7%; top: 480px; }
+  .section-heading.split, .process-layout, .trust-layout, .guide-card, .faq-layout { grid-template-columns: 1fr; }
+  .section-heading.split, .process-layout, .trust-layout, .faq-layout { gap: 45px; }
+  .benefit-grid article { padding-inline: 26px; }
+  .process-layout { max-width: 680px; }
+  .call-card { max-width: 520px; }
+  .trust-photo { min-height: 460px; }
+  .trust-photo img { height: 430px; }
+  .guide-card { width: min(calc(100% - 48px), 720px); }
+  .guide-art { min-height: 350px; }
+  .guide-copy { padding: 50px; }
+}
+
+@media (max-width: 640px) {
+  body { padding-bottom: 76px; }
+  .container { width: min(calc(100% - 36px), var(--container)); }
+  .offer-bar { min-height: 42px; padding: 7px 12px; text-align: center; }
+  .offer-bar span { display: none; }
+  .site-header { top: 42px; height: 74px; }
+  .brand { width: 156px; height: 56px; }
+  .header-call { display: none; }
+  .hero { height: 750px; min-height: 0; }
+  .hero-image { background-position: 61% center; }
+  .hero-shade { background: linear-gradient(90deg, rgba(16,25,28,.84), rgba(16,25,28,.4)); }
+  .hero-content { padding-top: 180px; }
+  h1 { font-size: 46px; }
+  .hero-intro { font-size: 16px; max-width: 95%; }
+  .hero-actions { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .discount-card { width: 120px; height: 120px; top: 562px; right: 8%; }
+  .discount-card strong { font-size: 21px; }
+  .scroll-cue { display: none; }
+  .section { padding: 70px 0; }
+  .section-heading h2, .process h2, .trust h2, .guide h2, .final-cta h2 { font-size: 37px; }
+  .centered { margin-bottom: 36px; }
+  .benefit-grid { grid-template-columns: 1fr; gap: 0; }
+  .benefit-grid article { padding: 28px 10px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .benefit-grid article:last-child { border-bottom: 0; }
+  .section-heading.split { margin-bottom: 34px; gap: 20px; }
+  .gallery { display: flex; flex-direction: column; }
+  .gallery figure, .gallery-large { height: 300px; }
+  .center-action { flex-direction: column; text-align: center; }
+  .process li { grid-template-columns: 42px 1fr; }
+  .call-card { padding: 38px 25px; }
+  .trust-photo { min-height: 380px; }
+  .trust-photo img { width: 94%; height: 355px; }
+  .trust-photo > div { bottom: 0; padding: 17px 20px; }
+  .guide-card { width: 100%; }
+  .guide-art { min-height: 330px; }
+  .guide-sheet { width: 200px; height: 270px; }
+  .guide-sheet-back { left: 12%; }
+  .guide-sheet-front { left: 26%; }
+  .guide-sheet-front b { font-size: 21px; }
+  .guide-copy { padding: 42px 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .form-row .button { width: 100%; margin-bottom: 0; }
+  .faq-layout { gap: 34px; }
+  .final-cta { min-height: 520px; }
+  .footer-main { flex-wrap: wrap; gap: 16px; }
+  .footer-main p { width: 100%; order: 3; margin: 0; }
+  .footer-bottom { flex-direction: column; gap: 8px; }
+  .mobile-call {
+    position: fixed; display: flex; z-index: 50; bottom: 12px; left: 18px; right: 18px; min-height: 58px;
+    padding: 8px 22px; align-items: center; justify-content: center; gap: 12px; border-radius: 4px;
+    background: var(--orange); color: var(--ink); box-shadow: 0 12px 35px rgba(0,0,0,.25); text-decoration: none;
+  }
+  .mobile-call svg { width: 21px; fill: currentColor; stroke: none; }
+  .mobile-call span { display: flex; flex-direction: column; line-height: 1.15; }
+  .mobile-call b { font-size: 14px; }
+  .mobile-call small { font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
